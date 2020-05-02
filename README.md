@@ -9,3 +9,4 @@ Exploring maps
 - animate (MapVC.swift)
 - swipe down (MapVC.swift)
 - custom spinner (MapVC.swift)
+- collection view (PhotoCell.swift, MapVC.swift)
