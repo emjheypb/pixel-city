@@ -109,8 +109,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func retrieveURLs(annotation: DroppablePin, completion: @escaping (_ status: Bool) -> ()) {
-        imageURLArray.removeAll()
-        
         AF.request(flickURL(annotation: annotation, numOfPhotos: 40)).responseJSON { (response) in
             guard let json = response.value as? Dictionary<String, AnyObject> else { return }
             let photosDict = json["photos"] as! Dictionary<String, AnyObject>
@@ -126,8 +124,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func retrieveImages(completion: @escaping (_ status: Bool) -> ()) {
-        imageArray.removeAll()
-        
         for url in imageURLArray {
             AF.request(url).responseImage { (response) in
                 guard let image = response.value else { return }
@@ -180,6 +176,10 @@ extension MapVC: MKMapViewDelegate {
     }
     
     @objc func dropPin(_ sender: UITapGestureRecognizer) {
+        imageURLArray.removeAll()
+        imageArray.removeAll()
+        collectionView?.reloadData()
+        
         animateViewUp()
         
         removePin()
@@ -237,10 +237,12 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell {
-            return cell
-        }
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
+        let imageFromIndex = imageArray[indexPath.row]
+        let imageView = UIImageView(image: imageFromIndex)
+        cell.addSubview(imageView)
+        
+        return cell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
