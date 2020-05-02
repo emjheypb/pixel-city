@@ -83,6 +83,57 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </scene>
+        <!--PopVC-->
+        <scene sceneID="sYV-wD-cIv">
+            <objects>
+                <viewController storyboardIdentifier="PopVC" id="cmS-Cb-XFw" customClass="PopVC" customModule="pixel_city" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6a3-mv-QzF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K5l-35-f6D">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVc-D9-UeX">
+                                <rect key="frame" x="107" y="817" width="200" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double Tap to Dismiss" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rle-KJ-m5N">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="25"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Rle-KJ-m5N" secondAttribute="bottom" id="5MM-jR-HM7"/>
+                                    <constraint firstItem="Rle-KJ-m5N" firstAttribute="leading" secondItem="mVc-D9-UeX" secondAttribute="leading" id="QQc-TD-S4I"/>
+                                    <constraint firstItem="Rle-KJ-m5N" firstAttribute="top" secondItem="mVc-D9-UeX" secondAttribute="top" id="bJ1-Wt-kzd"/>
+                                    <constraint firstAttribute="width" constant="200" id="cdJ-vF-v7t"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rle-KJ-m5N" secondAttribute="trailing" id="jeB-RT-JLa"/>
+                                    <constraint firstAttribute="height" constant="25" id="zpd-3b-jnS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="K5l-35-f6D" secondAttribute="bottom" id="4o8-7a-cA9"/>
+                            <constraint firstItem="K5l-35-f6D" firstAttribute="trailing" secondItem="Dck-zQ-Awd" secondAttribute="trailing" id="8be-kR-L1a"/>
+                            <constraint firstItem="Dck-zQ-Awd" firstAttribute="bottom" secondItem="mVc-D9-UeX" secondAttribute="bottom" constant="20" id="S8V-ln-Ogi"/>
+                            <constraint firstItem="K5l-35-f6D" firstAttribute="leading" secondItem="Dck-zQ-Awd" secondAttribute="leading" id="bVa-ZI-rk1"/>
+                            <constraint firstItem="mVc-D9-UeX" firstAttribute="centerX" secondItem="6a3-mv-QzF" secondAttribute="centerX" id="f6B-v6-1EM"/>
+                            <constraint firstItem="K5l-35-f6D" firstAttribute="top" secondItem="6a3-mv-QzF" secondAttribute="top" id="f6R-NV-yYz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dck-zQ-Awd"/>
+                    </view>
+                    <connections>
+                        <outlet property="popImageView" destination="K5l-35-f6D" id="fkm-Z3-3WC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UFc-I6-U63" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="940.57971014492762" y="116.51785714285714"/>
+        </scene>
     </scenes>
     <resources>
         <image name="locationButton" width="67" height="67"/>

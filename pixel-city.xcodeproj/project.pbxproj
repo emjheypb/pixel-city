@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0D5B5E245D947E0095A4E2 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0D5B5D245D947E0095A4E2 /* PopVC.swift */; };
 		5F7880D4245D2C7A007BDA27 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7880D3245D2C7A007BDA27 /* DroppablePin.swift */; };
 		5F7880D6245D5B12007BDA27 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7880D5245D5B12007BDA27 /* PhotoCell.swift */; };
 		5F7880D9245D61B9007BDA27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7880D8245D61B9007BDA27 /* Constants.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		3A7D0DAB64F5516A666D1325 /* Pods-pixel-city.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pixel-city.release.xcconfig"; path = "Pods/Target Support Files/Pods-pixel-city/Pods-pixel-city.release.xcconfig"; sourceTree = "<group>"; };
+		5F0D5B5D245D947E0095A4E2 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		5F7880D3245D2C7A007BDA27 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		5F7880D5245D5B12007BDA27 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		5F7880D8245D61B9007BDA27 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				5FA7E813245CB451004E14E7 /* MapVC.swift */,
+				5F0D5B5D245D947E0095A4E2 /* PopVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			files = (
 				5FA7E814245CB451004E14E7 /* MapVC.swift in Sources */,
 				5F7880D6245D5B12007BDA27 /* PhotoCell.swift in Sources */,
+				5F0D5B5E245D947E0095A4E2 /* PopVC.swift in Sources */,
 				5F7880D4245D2C7A007BDA27 /* DroppablePin.swift in Sources */,
 				5FA7E810245CB451004E14E7 /* AppDelegate.swift in Sources */,
 				5FA7E812245CB451004E14E7 /* SceneDelegate.swift in Sources */,
