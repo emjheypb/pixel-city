@@ -1,5 +1,5 @@
 # pixel-city
-Exploring maps
+Exploring maps and programatically adding subviews
 
 - Alamofire and AlamofireImage
 - MapKit and CoreLocation - getting location details (MapVC.swift)
