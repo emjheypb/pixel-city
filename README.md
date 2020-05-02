@@ -10,3 +10,4 @@ Exploring maps and programatically adding subviews
 - swipe down (MapVC.swift)
 - custom spinner (MapVC.swift)
 - collection view (PhotoCell.swift, MapVC.swift)
+- 3D touch (MapVC.swift) *not working on iOS  13*
