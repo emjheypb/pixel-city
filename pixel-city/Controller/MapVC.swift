@@ -27,6 +27,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var progressLbl : UILabel?
     var collectionView : UICollectionView?
     var imageURLArray = [String]()
+    var imageArray = [UIImage]()
     
     var screenSize = UIScreen.main.bounds
     let regionRadius : Double = 1000 * 2.0
@@ -45,7 +46,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
-        collectionView?.backgroundColor = .systemTeal
         pullUpView.addSubview(collectionView!)
     }
     
@@ -120,8 +120,23 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
                 self.imageURLArray.append(postURL)
             }
             
-            print(self.imageURLArray)
             completion(true)
+        }
+    }
+    
+    func retrieveImages(completion: @escaping (_ status: Bool) -> ()) {
+        imageArray.removeAll()
+        
+        for url in imageURLArray {
+            AF.request(url).responseImage { (response) in
+                guard let image = response.value else { return }
+                self.imageArray.append(image)
+                self.progressLbl?.text = "\(self.imageArray.count)/40 Images Downloaded"
+                
+                if self.imageArray.count == self.imageURLArray.count {
+                    completion(true)
+                }
+            }
         }
     }
 
@@ -178,7 +193,13 @@ extension MapVC: MKMapViewDelegate {
         
         retrieveURLs(annotation: annotation) { (success) in
             if success {
-                
+                self.retrieveImages { (success) in
+                    if success {
+                        self.removeSpinner()
+                        self.removeProgressLbl()
+                        self.collectionView?.reloadData()
+                    }
+                }
             }
         }
     }
@@ -203,7 +224,7 @@ extension MapVC: CLLocationManagerDelegate {
 
 extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

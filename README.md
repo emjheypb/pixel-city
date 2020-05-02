@@ -1,7 +1,7 @@
 # pixel-city
 Exploring maps and programatically adding subviews
 
-- Alamofire and AlamofireImage
+- Alamofire and AlamofireImage (MapVC.swift)
 - MapKit and CoreLocation - getting location details (MapVC.swift)
 - custom map pin (DroppablePin.swift)
 - double tap (MapVC.swift)
