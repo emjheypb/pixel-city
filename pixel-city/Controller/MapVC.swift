@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
+import AlamofireImage
 
 class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
@@ -24,6 +26,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var spinner : UIActivityIndicatorView?
     var progressLbl : UILabel?
     var collectionView : UICollectionView?
+    var imageURLArray = [String]()
     
     var screenSize = UIScreen.main.bounds
     let regionRadius : Double = 1000 * 2.0
@@ -103,6 +106,24 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             progressLbl?.removeFromSuperview()
         }
     }
+    
+    func retrieveURLs(annotation: DroppablePin, completion: @escaping (_ status: Bool) -> ()) {
+        imageURLArray.removeAll()
+        
+        AF.request(flickURL(annotation: annotation, numOfPhotos: 40)).responseJSON { (response) in
+            guard let json = response.value as? Dictionary<String, AnyObject> else { return }
+            let photosDict = json["photos"] as! Dictionary<String, AnyObject>
+            let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>]
+            
+            for photo in photosDictArray {
+                let postURL = "https://live.staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!).jpg"
+                self.imageURLArray.append(postURL)
+            }
+            
+            print(self.imageURLArray)
+            completion(true)
+        }
+    }
 
     @IBAction func centerMapBtnPressed(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
@@ -155,7 +176,11 @@ extension MapVC: MKMapViewDelegate {
         let coordinateRegion = MKCoordinateRegion.init(center: touchCoordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
         
-        print(flickURL(annotation: annotation, numOfPhotos: 40))
+        retrieveURLs(annotation: annotation) { (success) in
+            if success {
+                
+            }
+        }
     }
     
     func removePin() {
