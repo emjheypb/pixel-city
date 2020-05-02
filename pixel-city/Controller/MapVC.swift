@@ -154,6 +154,8 @@ extension MapVC: MKMapViewDelegate {
         
         let coordinateRegion = MKCoordinateRegion.init(center: touchCoordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
+        
+        print(flickURL(annotation: annotation, numOfPhotos: 40))
     }
     
     func removePin() {
