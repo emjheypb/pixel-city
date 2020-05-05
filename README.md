@@ -11,3 +11,5 @@ Exploring maps and programatically adding subviews
 - custom spinner (MapVC.swift)
 - collection view (PhotoCell.swift, MapVC.swift)
 - 3D touch (MapVC.swift) *not working on iOS  13*
+
+<img src="Screens/Home.png" width="250"> <img src="Screens/Loading.png" width="250"> <img src="Screens/Loaded.png" width="250"> <img src="Screens/Photo.png" width="250">
